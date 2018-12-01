@@ -8,13 +8,16 @@ status=0
 while [[ $status == 0 ]]
 do
     dig +short -t ANY $to_check > output.txt
-    sleep 1m
+    sleep 24h
+    #24 hours is in general the maximum Time to Live (TTL) value for DNS servers 
+    # https://en.wikipedia.org/wiki/Time_to_live
     dig +short -t ANY $to_check > output3.txt
     #+short -t option allow to get only Answer part of dig standard output
 
     sort -d output.txt > output2.txt
     sort -d output3.txt > output4.txt
-    #Trick to sort content of the files by dictionary (eg : numbers at the beginning, then letter from A to Z and so on)
+    #Trick to sort content of the files by dictionary (eg : numbers at the beginning, then letter from A to Z and
+    #so on)
 
     cmp output2.txt output4.txt
     status=$?
