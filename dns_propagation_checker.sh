@@ -1,6 +1,6 @@
 #!/bin/bash
 read -p "Input the domain name or IP you want to check >>>" to_check
-#Asks user for input and assigns answer to variable "To_check" 
+#Asks user for input and assigns answer to variable "to_check" 
 printf "We will check the domain name or IP you specified \n"
 
 status=0
